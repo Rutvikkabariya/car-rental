@@ -1,0 +1,194 @@
+
+    <div class="main-content">
+          <!-- ----------------- header ----------------------- -->
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+                
+                <div class="header-menu">
+                    
+                    <div class="notify-icon">
+                        <span class="las la-envelope"></span>
+                        <span class="notify">4</span>
+                    </div>
+                    
+                    <div class="notify-icon">
+                        <span class="las la-bell"></span>
+                        <span class="notify">3</span>
+                    </div>
+                    
+                    <div class="user">
+                        <a href="/profile"><div class="bg-img"  style="background-image: url('../../newImg/favicon.ico')"></div></a>
+                        <!-- <span>Admin</span> -->
+
+                        <a href="/logout">
+                            <span class="las la-power-off"></span>
+                       <span>Logout</span>
+                   </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+                <!-- ================= Main Body =================== -->
+                <main>
+            
+                    <div class="page-header">
+                        <h1>Car Booking Details</h1>
+                        <small>Home / Car Booking</small>
+                    </div>
+                    
+                    <div class="page-content">
+        
+                        <div class="records table-responsive">
+        
+                            <div class="record-header">
+                                <div class="add">
+                                    <span>Entries</span>
+                                    <select name="" id="">
+                                        <option value="">ID</option>
+                                    </select>
+                                    <button>Add record</button>
+                                </div>
+        
+                                <div class="browse">
+                                   <input type="search" placeholder="Search" class="record-search">
+                                    <select name="" id="">
+                                        <option value="">Status</option>
+                                    </select>
+                                </div>
+                            </div>
+        
+                            <div>
+                                <table width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>BOOK_ID</th>
+                                            <th><span class="las la-sort"></span> NAME</th>
+                                            <!-- <th><span class="las la-sort"></span> EMAIL</th> -->
+                                            <th><span class="las la-sort"></span> MOBILE NO</th>
+                                            <th><span class="las la-sort"></span> CAR</th>
+                                            <th><span class="las la-sort"></span> BOOKING DATE</th>
+                                            <th><span class="las la-sort"></span> ACTIONS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% data.forEach((booking ,i)=> {%>
+                                        <tr>
+                                            <td>#5033</td>
+                                            <td>
+                                                <div class="client">
+                                                   <!-- <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div> -->
+                                                    <div class="client-info">
+                                                        <h4> <%= booking.name %></h4>
+                                                        <small><%= booking.email %></small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td> <%= booking.phone %></td>
+                                            <td> <%= booking.car %></td>
+                                            <td> <%= booking.date %></td>
+                                            <td>
+                                                <div class="actions">
+                                                    <span class="las la-eye" onclick="{bookingModal('<%= booking.name %>','<%= booking.email %>','<%= booking.phone %>','<%= booking.car %>','<%= booking.drive %>','<%= booking.pickup %>','<%= booking.drop %>','<%= booking.state %>','<%= booking.date %>')}"></span>
+                                                    <a href="/booking_dlt/<%= booking._id %>"><span class="las la-trash" style="color: rgb(63, 1, 1);"></span></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                        <tr>
+                                            <td>#5033</td>
+                                            <td>
+                                                <div class="client">
+                                                   <!-- <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div> -->
+                                                    <div class="client-info">
+                                                        <h4>Andrew Bruno</h4>
+                                                        <small>bruno@crossover.org</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td> 9989899898</td>
+                                            <td> maruti sizuki</td>
+                                            <td>2024-05-09</td>
+                                            <td>
+                                                <div class="actions">
+                                                    <span class="las la-eye"></span>
+                                                    <span class="las la-trash"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#5033</td>
+                                            <td>
+                                                <div class="client">
+                                                   <!-- <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div> -->
+                                                    <div class="client-info">
+                                                        <h4>Andrew Bruno</h4>
+                                                        <small>bruno@crossover.org</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td> 9989899898</td>
+                                            <td> suv </td>
+                                            <td>2024-04-30</td>
+                                            <td>
+                                                <div class="actions">
+                                                    <span class="las la-eye"></span>
+                                                    <span class="las la-trash"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+     
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        
+              <!-- model  -->
+              <div class="modal-container" onclick="bookingModal()"></div>
+              <div class="modal-window">
+                  <h2>Booking Details</h2><hr><br>
+                  <p><b>Name : </b><s id="name"></s></p>
+                  <p><b>Email : </b><s id="email"></s></p>
+                  <p><b>Phone Mo. : </b><s id="phone"></s></p>
+                  <p><b>Car : </b><s id="car"></s></p>
+                  <p><b>Drive : </b><s id="drive"></s></p>
+                  <p><b>Pickup Point : </b><s id="pickup"></s></p>
+                  <p><b>Drop Point : </b><s id="drop"></s></p>
+                  <p><b>State : </b><s id="state"></s></p>
+                  <p><b>Booking Date : </b><s id="date"></s></p>
+                  <p><b>Driver Name : </b> arun </p>
+                  <p><b>Driver Phone : </b> +90999 99999 </p>
+              </div>
+          
+              <!-- model Script -->
+              <script>
+                  const bookingModal = (a,b,c,d,e,f,g,h,i) => {
+
+                    document.getElementById("name").innerHTML = a;
+                    document.getElementById("email").innerHTML = b;
+                    document.getElementById("phone").innerHTML = c;
+                    document.getElementById("car").innerHTML = d;
+                    document.getElementById("drive").innerHTML = e;
+                    document.getElementById("pickup").innerHTML = f;
+                    document.getElementById("drop").innerHTML = g;
+                    document.getElementById("state").innerHTML = h;
+                    document.getElementById("date").innerHTML = i;
+
+                      const bodyClassList = document.body.classList;
+                      if (bodyClassList.contains("open")) {
+                          bodyClassList.remove("open");
+                          bodyClassList.add("closed");
+                      } else {
+                          bodyClassList.remove("closed");
+                          bodyClassList.add("open");
+                      }
+                  };
+              </script>
+        
+   

@@ -1,0 +1,37 @@
+
+<main>
+    <section class="py-120 contact" style="background-image: url('/frontend/Image/invoice.png');">
+        <div class="container">
+            <div class="row">
+                <div class="contact-info">
+                    
+                    <h2><b></b></h2></div>
+            </div>
+        </div>
+    </section>
+<section class="nav">
+    <h2>invoice / booking detail</h2>
+</section>
+<% data.forEach((invoice ,i) => { %>
+<div class="invoice">
+      <h4>Invoice Number : 54<%= i%>3</h4>
+      <h4>Date : <%= invoice.date%></h4>
+      <hr>
+      <h3>Personal Detail :-</h3>
+      <h4>Name : <%= invoice.name%></h4>
+      <h4>Phone Number : +91 <%= invoice.phone%></h4>
+      <h4>Email : <%= invoice.email%></h4>
+
+      <h3>Booking Detail :-</h3>
+      <h4>Car : <%= invoice.car%></h4>
+      <h4>Driver : <%= invoice.Driver%></h4>
+      <h4>Pickup Point : <%= invoice.pickup%></h4>
+      <h4>drop Point : <%= invoice.drop%></h4>
+      <h4>Booking Date : <%= invoice.date%></h4>
+      <hr>
+      <h3>Payment :-</h3>
+      <h4>Total Amount : Rs. 2999</h4>
+</div>
+<% }) %>
+
+</main>

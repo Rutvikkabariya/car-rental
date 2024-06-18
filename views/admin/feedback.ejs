@@ -1,0 +1,174 @@
+<div class="main-content">
+    <!-- ----------------- header ----------------------- -->
+    <header>
+        <div class="header-content">
+            <label for="menu-toggle">
+                <span class="las la-bars"></span>
+            </label>
+
+            <div class="header-menu">
+
+                <div class="notify-icon">
+                    <span class="las la-envelope"></span>
+                    <span class="notify">4</span>
+                </div>
+
+                <div class="notify-icon">
+                    <span class="las la-bell"></span>
+                    <span class="notify">3</span>
+                </div>
+
+                <div class="user">
+                    <a href="/profile"><div class="bg-img"  style="background-image: url('../../newImg/favicon.ico')"></div></a>
+                    <!-- <span>Admin</span> -->
+
+                    <a href="/logout">
+                        <span class="las la-power-off"></span>
+                   <span>Logout</span>
+               </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= Main Body =================== -->
+    <main>
+
+        <div class="page-header">
+            <h1>Feedback</h1>
+            <small>Home / Feedback</small>
+        </div>
+
+        <div class="page-content">
+
+            <div class="records table-responsive">
+
+                <div class="record-header">
+                    <div class="add">
+                        <span>Entries</span>
+                        <select name="" id="">
+                            <option value="">ID</option>
+                        </select>
+                        <button>Add record</button>
+                    </div>
+
+                    <div class="browse">
+                        <input type="search" placeholder="Search" class="record-search">
+                        <select name="" id="">
+                            <option value="">Status</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th><span class="las la-sort"></span> USER</th>
+                                <!-- <th><span class="las la-sort"></span> EMAIL</th> -->
+                                <!-- <th><span class="las la-sort"></span> MOBILE NO</th> -->
+                                <th><span class="las la-sort"></span> FEEDBACK</th>
+                                <th><span class="las la-sort"></span> ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% data.forEach((feedback ,i)=> {%>
+                                <tr>
+                                    <td>#503<%= i %>
+                                    </td>
+                                    <td>
+                                        <div class="client">
+                                            <div class="client-info">
+                                                <h4><%= feedback.name %></h4>
+                                                <small><%= feedback.email %></small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- <td> bruno@crossover.org </td> -->
+                                    <!-- <td> 9989899898</td> -->
+                                    <td>
+                                        <%= feedback.message.length>20 ? feedback.message.slice(0,30)+'...' : feedback.message %>
+                                    </td>
+                                    <td>
+                                        <div class="actions">
+                                            <span class="las la-eye" onclick="{feedbackModel('<%= feedback.name %>','<%= feedback.email %>','<%= feedback.message %>')}"></span>
+                                            <a href="/feedback_dlt/<%= feedback._id %>"><span class="las la-trash" style="color: rgb(63, 1, 1);"></span></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                                    <tr>
+                                        <td>#5033</td>
+                                        <td>
+                                            <div class="client">
+                                                <div class="client-info">
+                                                    <h4>arjun</h4>
+                                                    <small>arjun@gmail.in</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- <td> 9989899898</td> -->
+                                        <td>hi, best car rental services is prov...</td>
+                                        <td>
+                                            <div class="actions">
+                                                <span class="las la-eye"></span>
+                                                <span class="las la-trash"></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#5033</td>
+                                        <td>
+                                            <div class="client">
+                                                <div class="client-info">
+                                                    <h4>virat</h4>
+                                                    <small>virat@gmail.com</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- <td> 9989899898</td> -->
+                                        <td> hello my first experins is best... </td>
+                                        <td>
+                                            <div class="actions">
+                                                <span class="las la-eye"></span>
+                                                <span class="las la-trash"></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+<!-- model  -->
+<div class="modal-container" onclick="feedbackModel()"></div>
+<div class="modal-window">
+    <h2>Feedback</h2>
+    <hr><br>       
+    <p><b>Name : </b><s id="a"></s></p>
+    <p><b>Email : </b><s id="b"></s></p>
+    <p><b>Feedback : </b><br><s id="c"></s></p>
+</div>
+<!-- model Script -->
+<script>
+    const feedbackModel = (a, b, c) => {
+
+        document.getElementById("a").innerHTML = a;
+        document.getElementById("b").innerHTML = b;
+        document.getElementById("c").innerHTML = c;
+
+        const bodyClassList = document.body.classList;
+        if (bodyClassList.contains("open")) {
+            bodyClassList.remove("open");
+            bodyClassList.add("closed");
+        } else {
+            bodyClassList.remove("closed");
+            bodyClassList.add("open");
+        }
+    };
+</script>

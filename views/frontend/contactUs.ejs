@@ -1,0 +1,111 @@
+
+        <main>
+        <!-- Contact Us -->
+        <section class="py-120 service-bg">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="about-detail">
+                        <div class="section-title">
+                            <span>ZenTec - Welcome To IT Solutions</span>
+                            <h2>Contact Us <span>ZenTech IT Solutions</span></h2>
+                        </div>
+                        <div class="Appointment-content">
+                            <p>Hello, thank you for your interest in our company! We're always happy to hear from our customers. If you have any questions or comments, please don't hesitate to reach out. You can contact us by phone at +88888 88888, by email , or by filling out the contact form below. We will respond to your inquiry as soon as possible.</p>
+                            <div class="Appointment-detail">
+                                <ul class="app-image">
+                                    <li>
+                                        <img src="/frontend/image/Easier-To-Implement.png" alt="Easier-To-Implement">
+                                        <div class="icon-pattern"></div>
+                                        <div class="app-content">
+                                        <h3>Easier To Implement</h3>
+                                        <p>Sed incididunt labore dolore magna sed aliquatenim veniam quis ipsum nostrud exercitation ullamco</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="app-image">
+                                    <li>
+                                        <img src="/frontend/image/Increase-Growth-Rates.png" alt="Increase-Growth-Rates">
+                                        <div class="icon-pattern"></div>
+                                        <div class="app-content">
+                                        <h3>Increase Growth Rates</h3>
+                                        <p>Sed incididunt labore dolore magna sed aliquatenim veniam quis ipsum nostrud exercitation ullamco</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="app-image">
+                                    <li>
+                                        <img src="/frontend/image/Branding-Of-The-Future.png" alt="Branding-Of-The-Future">
+                                        <div class="icon-pattern"></div>
+                                        <div class="app-content">
+                                        <h3>Need Any Help?</h3>
+                                        <p>+88888 88888</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appointment-book">
+                        <div class="appointment-img">
+                            <img src="/frontend/image/featured-image-1.jpg" alt="featured-image-1">
+                        </div>
+                        <div class="form-box">
+                            <div class="form-box-title"> 
+                                <h3>Contact Us</h3>
+                                <p>We Help Customers And Send The Inforamation By Speedo</p>
+                                <h4><%= (typeof message !=='undefined' ) ? message : '' %></h4>
+                            </div>
+                            <form action="/contactUs" method="post">
+                                <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+                                <input type="email" name="email" placeholder="Email" class="form-input" required>
+                                <input type="number" name="phone" placeholder="Phone number" class="form-input" required>
+                                <textarea name="message" id="" cols="53" rows="6" placeholder="Write Your message..."class="form-input"></textarea>
+                                <!-- <select name="" id="" class="form-inputs">
+                                    <option value="">Inquire about</option>
+                                    <option value="">IT Cloud Integration</option>
+                                    <option value="">Business Security</option>
+                                    <option value="">Product Engineering</option>
+                                </select> -->
+                                <br>
+                                <button type="submit" class="submit button">Contact Us</button>
+                            </form>                                
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        </main>
+
+        
+        <script src="frontend/js/jquery.min.js" ></script>
+        <script src="frontend/js/owl.carousel.min.js" ></script>
+        <script>
+            $(document).ready(function() {
+                $('.fadeOut').owlCarousel({
+                    items: 1,
+                    animateOut: 'fadeOut',
+                    loop: true,
+                    autoplay: true,
+                });
+            })
+            $(document).ready(function() {
+                var owl = $('.owl-carousel');
+                owl.owlCarousel({
+                margin: 10,
+                nav: true,
+                loop: true,
+                items: 2
+                })
+            })
+            $(document).ready(function() {
+                var owl = $('.company-box, owl-carousel');
+                owl.owlCarousel({
+                margin: 10,
+                nav: true,
+                loop: true,
+                items:5,
+                autoplay: true,
+                })
+            })
+        </script>

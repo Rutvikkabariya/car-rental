@@ -1,0 +1,107 @@
+
+
+    <!-- ================= Main Body =================== -->
+    <div class="main-content">
+        <!-- ----------------- header ----------------------- -->
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+
+                <div class="header-menu">
+
+                    <div class="notify-icon">
+                        <span class="las la-envelope"></span>
+                        <span class="notify">4</span>
+                    </div>
+
+                    <div class="notify-icon">
+                        <span class="las la-bell"></span>
+                        <span class="notify">3</span>
+                    </div>
+
+                    <div class="user">
+                        <a href="/profile"><div class="bg-img"  style="background-image: url('../../newImg/favicon.ico')"></div></a>
+                        <!-- <span>Admin</span> -->
+
+                        <a href="/logout">
+                            <span class="las la-power-off"></span>
+                       <span>Logout</span>
+                   </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="page-header">
+                <h1>My Profile</h1>
+                <small>Home / Profile</small>
+            </div>
+
+            <div class="page-content">
+
+                <!-- ================= Profile =================== -->
+                <div class="pf-body">
+                    <div class="container">
+
+                        <h1 class="title">Modify My Profile</h1>
+
+                        <div class="grid">
+                            <div class="form-group a">
+                                <label for="name">name</label>
+                                <input id="name" name="name" value="<%= user.name%>" type="text">
+                            </div>
+
+                            <div class="form-group b">
+                                <label for="number">Phone Number</label>
+                                <input id="number" type="Number" value="<%= user.phone%>">
+                            </div>
+
+                            <div class="form-group email-group">
+                                <label for="email">Email</label>
+                                <input id="email" type="text" value="<%= user.email%>">
+                            </div>
+
+                            <div class="form-group phone-group">
+                                <label for="dob">DOB</label>
+                                <input id="dob" type="date" value="<%= user.dob%>">
+                            </div>
+
+                            <div class="textarea-group">
+                                <label for="address">Address</label>
+                                <textarea type="text" id="address" value="<%= user.address%>" placeholder="Enter your address..."></textarea>
+                            </div>
+
+
+                        </div>
+
+                        <div class="checkboxes">
+
+                            <div class="checkbox-group">
+                                <input id="newsletter" type="checkbox">
+                                <label for="newsletter">Male</label>
+
+                                <!-- <input id="newsletter" type="checkbox">
+                                <label for="newsletter">fMale</label> -->
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input id="newsletter-partners" type="checkbox">
+                                <label for="newsletter-partners">Female</label>
+                            </div>
+
+                        </div>
+
+                        <div class="button-container">
+                            <button class="button" onclick="profile()">Update</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>

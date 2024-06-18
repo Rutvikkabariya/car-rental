@@ -1,0 +1,185 @@
+
+
+    <div class="main-content">
+          <!-- ----------------- header ----------------------- -->
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+                
+                <div class="header-menu">
+                    
+                    <div class="notify-icon">
+                        <span class="las la-envelope"></span>
+                        <span class="notify">4</span>
+                    </div>
+                    
+                    <div class="notify-icon">
+                        <span class="las la-bell"></span>
+                        <span class="notify">3</span>
+                    </div>
+                    
+                    <div class="user">
+                        <a href="/profile"><div class="bg-img"  style="background-image: url('../../newImg/favicon.ico')" style="background-image: url('../../newImg/favicon.ico')"></div></a>
+                        <!-- <span>Admin</span> -->
+
+                        <a href="/logout">
+                            <span class="las la-power-off"></span>
+                       <span>Logout</span>
+                   </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+         <!-- ================= Main Body =================== -->
+         <main>
+            
+            <div class="page-header">
+                <h1>All Users</h1>
+                <small>Home / All Users</small>
+            </div>
+            
+            <div class="page-content">
+
+                <div class="records table-responsive">
+
+                    <div class="record-header">
+                        <div class="add">
+                            <span>Entries</span>
+                            <select name="" id="">
+                                <option value="">ID</option>
+                            </select>
+                            <button>Add record</button>
+                        </div>
+
+                        <div class="browse">
+                           <input type="search" placeholder="Search" class="record-search">
+                            <select name="" id="">
+                                <option value="">Status</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <table width="100%">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th><span class="las la-sort"></span> NAME</th>
+                                    <th><span class="las la-sort"></span> EMAIL</th>
+                                    <th><span class="las la-sort"></span> MOBILE NO</th>
+                                    <!-- <th><span class="las la-sort"></span> MESSAGE</th> -->
+                                    <th><span class="las la-sort"></span> ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% data.forEach((user ,i)=> {%>
+                                    <tr>
+                                        <td>#506<%= i %></td>
+                                        <td>
+                                            <div class="client">
+                                                <div class="client-info">
+                                                    <h4><%= user.name %></h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td> <%= user.email %> </td>
+                                        <td>+91 <%= user.phone %></td>
+                                        <td>
+                                            <div class="actions">
+                                                <span class="las la-eye" onclick="{userModal('<%= user.name %>','<%= user.email %>','<%= user.phone %>','<%= user.gender %>','<%= user.dob %>','<%= user.address %>')}"></span>
+                                                <a href="/userDelete/<%= user._id %>"><span class="las la-trash" style="color: rgb(63, 1, 1);"></span></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                <tr>
+                                    <td>#5033</td>
+                                    <td>
+                                        <div class="client">
+                                           <!-- <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div> -->
+                                            <div class="client-info">
+                                                <h4>rajesh</h4>
+                                                <!-- <small>bruno@crossover.org</small> -->
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td> rajesh@gmail.com </td>
+                                    <td>+91 9712299898</td>
+                                    <!-- <td> hello my firstfbfb ffff fffd... </td> -->
+                                    <td>
+                                        <div class="actions">
+                                            <span class="las la-eye"></span>
+                                            <span class="las la-trash"></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#5033</td>
+                                    <td>
+                                        <div class="client">
+                                           <!-- <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div> -->
+                                            <div class="client-info">
+                                                <h4>rohit</h4>
+                                                <!-- <small>bruno@crossover.org</small> -->
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td> rohit@gmail.com </td>
+                                    <td>+91 7857898123</td>
+                                    <td>
+                                        <div class="actions">
+                                            <span class="las la-eye"></span>
+                                            <span class="las la-trash"></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+
+    </div>
+
+     <!-- model  -->
+     <div class="modal-container" onclick="userModal()"></div>
+     <div class="modal-window">
+         <h2>User's Details</h2><hr><br>
+         <p><b>Name : </b><s id="name"></s></p>
+         <p><b>Email : </b><s id="email"></s></p>
+         <p><b>Phone Mo. : </b><s id="phone"></s></p>
+         <p><b>Gender : </b><s id="gender"></s></p>
+         <p><b>DOB : </b><s id="dob"></s></p>
+         <p><b>Address : </b><s id="add"></s></p>
+     </div>
+ 
+     <!-- model Script -->
+     <script>
+         const userModal = (a,b,c,d,e,f) => {
+
+        document.getElementById("name").innerHTML = a;
+        document.getElementById("email").innerHTML = b;
+        document.getElementById("phone").innerHTML = c;
+        document.getElementById("gender").innerHTML = d;
+        document.getElementById("dob").innerHTML = e;
+        document.getElementById("add").innerHTML = f;
+
+             const bodyClassList = document.body.classList;
+             if (bodyClassList.contains("open")) {
+                 bodyClassList.remove("open");
+                 bodyClassList.add("closed");
+             } else {
+                 bodyClassList.remove("closed");
+                 bodyClassList.add("open");
+             }
+         };
+     </script>
+
+     

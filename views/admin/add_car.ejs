@@ -1,0 +1,104 @@
+
+    <!-- ================= Main Body =================== -->
+    <div class="main-content">
+        <!-- ----------------- header ----------------------- -->
+        <header>
+            <div class="header-content">
+                <label for="menu-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+
+                <div class="header-menu">
+
+                    <div class="notify-icon">
+                        <span class="las la-envelope"></span>
+                        <span class="notify">4</span>
+                    </div>
+
+                    <div class="notify-icon">
+                        <span class="las la-bell"></span>
+                        <span class="notify">3</span>
+                    </div>
+
+                    <div class="user">
+                        <div class="bg-img"  style="background-image: url('../../newImg/favicon.ico')"></div>
+
+                        <a href="/logout">
+                            <span class="las la-power-off"></span>
+                       <span>Logout</span>
+                   </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="page-header">
+                <h1>Add Car</h1>
+                <small>Home / Add Car</small>
+            </div>
+
+            <div class="page-content">
+
+                
+                <!-- ================= Profile =================== -->
+                <div class="pf-body">
+                    <div class="container">
+                        
+                        <h1 class="title">Add Car Details</h1>
+
+                        <form action="/add_car" method="post" enctype="multipart/form-data">
+                        <div class="grid">
+                            <div class="form-group a">
+                                <label for="carName">Car Name</label>
+                                <input type="text" id="carName" name="car_name">
+                            </div>
+
+                            <div class="form-group b">
+                                <label for="carBrand">Car Brand</label>
+                                <input type="text" id="carBrand" name="car_brand">
+                            </div>
+
+                            <div class="form-group email-group">
+                                <label for="kms">Km/h</label>
+                                <input type="number" id="kms" name="km">
+                            </div>
+
+                            <div class="form-group phone-group">
+                                <label for="plat">Plat Number</label>
+                                <input type="text" id="plat" name="platnumber">
+                            </div>
+
+                            <div class="textarea-group">
+                                <label for="address">Car Detail</label>
+                                <textarea id="address" name="detail"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="images">Car Image</label>
+                                <input type="file" id="images" name="image">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="models">Car Model</label>
+                                <input type="text" id="models" name="model">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="prices">Price</label>
+                                <input type="number" id="prices" name="price">
+                            </div>
+                        </div>
+
+                        <div class="button-container">
+                            <button class="button" type="submit">Submit</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>

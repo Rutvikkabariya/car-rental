@@ -1,0 +1,144 @@
+
+        <!-- main -->
+        <main>
+ <!-- Contact Us -->
+ <section class="py-120 contact" style="background-image: url('/frontend/Image/car.png');">
+    <div class="container">
+        <div class="row">
+            <div class="contact-info">
+                <h2><b></b></h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!--==============Places===================-->
+        <section class="nav">
+
+        </section>
+        <section class="places">
+            <div class="places-text">
+                <h2>Popular Fleets</h2>
+                <small>These are some of our popular fleet. But we have others also.</small>
+            </div>
+
+            <div class="cards">
+            <% data.forEach((car)=>{ %>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="newImg/<%= car.image%>">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <span class="rating"></span>
+                        <h2><%= car.detail %></h2>
+                        <h3>Name : <%= car.car_name%> | Brand : <%= car.car_brand%> </h3>
+                        <h3>Model : <%= car.model%></h3>
+                        <p class="cost">$<%= car.price%> / Per Day</p>
+                        <div class="card-box">
+                            <p class="time">🕓 <%= car.km%> km/h</p>
+                            <p class="location"><a href="/getBooking?id=<%= car._id%>">✈ Book Now</a></p>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img
+                                 src="newImg/thar.png">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <!-- <span class="rating">⭐⭐⭐⭐⭐</span> -->
+                        <h2>The Dark Forest Adventure</h2>
+                        <h3>Name : thar | Brand : mahindra </h3>
+                        <h3>Model : 2016md</h3>
+                        <p class="cost">$1870 / Per Person</p>
+                        <div class="card-box">
+                            <p class="time">🕓 73 km/h</p>
+                            <p class="location">✈ Book Now</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="newImg/three.jpg">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <!-- <span class="rating">⭐⭐⭐⭐⭐</span> -->
+                        <h2>The Tata is Best Car</h2>
+                        <h3>Name : Swift | Brand : tata </h3>
+                        <h3>Model : 2016md</h3>
+                        <p class="cost">$2270 / Per Day</p>
+                        <div class="card-box">
+                            <p class="time">🕓 63 km/h</p>
+                            <p class="location">✈ Book Now</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img
+                                 src="newImg/two.jpg">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <!-- <span class="rating">⭐⭐⭐⭐⭐</span> -->
+                        <h2>The Big Mountain Adventure</h2>
+                        <h3>Name : Inova | Brand : SUV </h3>
+                        <h3>Model : 2016md</h3>
+                        <p class="cost">$1870 / Per Day</p>
+                        <div class="card-box">
+                            <p class="time">🕓 63 km/h</p>
+                            <p class="location">✈ Book Now</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </main>
+
+
+        <script src="frontend/js/jquery.min.js" ></script>
+        <script src="vjs/owl.carousel.min.js" ></script>
+        <script>
+            $(document).ready(function() {
+                $('.fadeOut').owlCarousel({
+                    items: 1,
+                    animateOut: 'fadeOut',
+                    loop: true,
+                    autoplay: true,
+                });
+            })
+            $(document).ready(function() {
+              var owl = $('.owl-carousel');
+              owl.owlCarousel({
+                margin: 10,
+                nav: true,
+                loop: true,
+                items: 2
+              })
+            })
+            $(document).ready(function() {
+              var owl = $('.company-box, owl-carousel');
+              owl.owlCarousel({
+                margin: 10,
+                nav: true,
+                loop: true,
+                items:5,
+                autoplay: true,
+              })
+            })
+        </script>

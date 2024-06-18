@@ -1,0 +1,155 @@
+<main>
+  <!-- Contact Us -->
+  <section class="py-120 contact" style="background-image: url('/frontend/Image/carbook.png');">
+    <div class="container">
+      <div class="row">
+        <div class="contact-info">
+          <h2><b>CarBook</b></h2>
+          <!-- <p>Your beautiful journey start with our car and enjoy your moments...</p> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--===========Feedback=================-->
+  <section class="nav">
+    <h2>Rent A Car Online</h2>
+  </section>
+  <div class="form">
+    <form action="/carBook" method="post">
+      <label for="fname">Full Name</label>
+      <input type="text" id="fname" name="name" value="<%= data.name %>" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" value="<%= data.email %>" required>
+
+      <label for="number">Phone Number</label>
+      <input type="number" id="number" name="phone" value="<%= data.phone %>" required>
+
+      <label for="car">Select Car</label>
+      <select id="car" name="car" onchange="price(this.value)" required>
+        <% if(c){%>
+        <option value="<%= c.car_name %>"><%= c.car_name %></option>
+        <%} else {%>
+          <%car.forEach((c)=>{%>
+          <option value="<%= c.car_name %>,<%= c.price %>" ><%= c.car_name %></option>
+         <%})%>
+          <%}%>
+      </select>
+
+      <label for="drive">Self Drive</label>
+      <select id="drive" name="drive" required>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <label for="State">Select State</label>
+      <select id="State" name="state" required>
+        <option value="Gujarat">Gujarat</option>
+        <option value="maharashtra">Maharashtra</option>
+        <option value="goa">Goa</option>
+      </select>
+
+      <label for="pickup">Pickup Point</label>
+      <input type="text" id="pickup" name="pickup" placeholder="Enter your pickup point..." required>
+
+      <label for="drop-point">Drop Point</label>
+      <input type="text" id="drop-point" name="drop" placeholder="Enter your Drop-off point..." required>
+
+      <label for="date">Choose Date</label>
+      <input type="date" id="date" name="date" placeholder="Enter booking date..." required>
+
+      <!-- <h1 id="price">hello</h1> -->
+       
+      <input type="submit" value="Pay Rs.<%= c ? c.price : '2999' %>" onclick="document.getElementById('id01').style.display='block'">
+     <h1 id="price"></h1>
+  </div>
+
+  <!-- payment model -->
+  <div id="id01" class="modal">
+
+    <div class="modal-content animate">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <h2>Payment</h2>
+        <label for="fname">Accepted Cards</label>
+        <div class="icon-container">
+          <i class="fab fa-cc-visa" style="color:navy;"></i>
+          <i class="fab fa-cc-amex" style="color:blue;"></i>
+          <i class="fab fa-cc-mastercard" style="color:red;"></i>
+          <i class="fab fa-cc-discover" style="color:orange;"></i>
+          <i class="fab fa-amazon-pay" style="color:rgb(0, 83, 104);"></i>
+        </div>
+      </div>
+
+      <div class="container">
+        <label for="cardname"><i class="fa fa-user"></i><b> Card holder name</b></label>
+        <input type="text" id="cardName" placeholder="Ex. John More Doe" name="card" required>
+
+        <label for="cardNo"><i class="fa fa-credit-card"></i><b> Credit card number</b></label>
+        <input type="number" id="cardNo" placeholder="Ex. 1111-2222-3333-4444" name="card_no" required>
+
+        <label for="cvv"><b>CVV</b></label>
+        <input type="number" id="cvv" placeholder="Ex. 234" name="cvv" required>
+
+        <button type="submit">Pay <i class="fa fa-inr"></i>.<%= c ? c.price : '2999' %></button>
+        <label>
+          <i class="fa fa-lock"></i> Secure Payment Services
+        </label>
+      </div>
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+  </form>
+
+</main>
+
+<!-- payment -->
+<script>
+  // Get the modal
+  var modal = document.getElementById('id01');
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+<!-- car price -->
+<script src="admin/script/admin.js"></script>
+
+<!-- Others.. -->
+<script src="frontend/js/jquery.min.js"></script>
+<script src="frontend/js/owl.carousel.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.fadeOut').owlCarousel({
+      items: 1,
+      animateOut: 'fadeOut',
+      loop: true,
+      autoplay: true,
+    });
+  })
+  $(document).ready(function () {
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+      margin: 10,
+      nav: true,
+      loop: true,
+      items: 2
+    })
+  })
+  $(document).ready(function () {
+    var owl = $('.company-box, owl-carousel');
+    owl.owlCarousel({
+      margin: 10,
+      nav: true,
+      loop: true,
+      items: 5,
+      autoplay: true,
+    })
+  })
+</script>

@@ -1,0 +1,67 @@
+
+        <main>
+            <section class="py-120 contact" style="background-image: url('/frontend/Image/feedback.jpg');">
+                <div class="container" >
+                    <div class="row">
+                        <div class="contact-info">
+                            
+                            <h2><b></b></h2><br><br>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <section class="nav">
+            <h2>Give Your Feedback</h2><br>
+            <h4><%= (typeof message !=='undefined' ) ? message : '' %></h4>
+        </section>
+        <div class="form">
+            <form action="/feedback" method="post">
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" name="name" placeholder="Enter your name.." required>
+          
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email.." required>
+          
+              <label for="subject">Message</label>
+              <textarea id="message" name="message" placeholder="Write your feedback.." style="height:140px"></textarea>
+          
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+
+    </main>
+    
+
+
+                <script src="frontend/js/jquery.min.js" ></script>
+                <script src="frontend/js/owl.carousel.min.js" ></script>
+                <script>
+                    $(document).ready(function() {
+                        $('.fadeOut').owlCarousel({
+                            items: 1,
+                            animateOut: 'fadeOut',
+                            loop: true,
+                            autoplay: true,
+                        });
+                    })
+                    $(document).ready(function() {
+                      var owl = $('.owl-carousel');
+                      owl.owlCarousel({
+                        margin: 10,
+                        nav: true,
+                        loop: true,
+                        items: 2
+                      })
+                    })
+                    $(document).ready(function() {
+                      var owl = $('.company-box, owl-carousel');
+                      owl.owlCarousel({
+                        margin: 10,
+                        nav: true,
+                        loop: true,
+                        items:5,
+                        autoplay: true,
+                      })
+                    })
+                </script>

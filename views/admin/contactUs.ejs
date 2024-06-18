@@ -1,0 +1,187 @@
+<div class="main-content">
+    <!-- ----------------- header ----------------------- -->
+    <header>
+        <div class="header-content">
+            <label for="menu-toggle">
+                <span class="las la-bars"></span>
+            </label>
+
+            <div class="header-menu">
+
+                <div class="notify-icon">
+                    <span class="las la-envelope"></span>
+                    <span class="notify">4</span>
+                </div>
+
+                <div class="notify-icon">
+                    <span class="las la-bell"></span>
+                    <span class="notify">3</span>
+                </div>
+
+                <div class="user">
+                    <a href="/profile"><div class="bg-img"  style="background-image: url('../../newImg/favicon.ico')"></div></a>
+                    <!-- <span>Admin</span> -->
+
+                    <a href="/logout">
+                        <span class="las la-power-off"></span>
+                   <span>Logout</span>
+               </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= Main Body =================== -->
+    <main>
+
+        <div class="page-header">
+            <h1>Contact Us</h1>
+            <small>Home / Contact Us</small>
+        </div>
+
+        <div class="page-content">
+
+            <div class="records table-responsive">
+
+                <div class="record-header">
+                    <div class="add">
+                        <span>Entries</span>
+                        <select name="" id="">
+                            <option value="">ID</option>
+                        </select>
+                        <button>Add record</button>
+                    </div>
+
+                    <div class="browse">
+                        <input type="search" placeholder="Search" class="record-search">
+                        <select name="" id="">
+                            <option value="">Status</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th><span class="las la-sort"></span> USER</th>
+                                <!-- <th><span class="las la-sort"></span> EMAIL</th> -->
+                                <th><span class="las la-sort"></span> MOBILE NO</th>
+                                <th><span class="las la-sort"></span> MESSAGE</th>
+                                <th><span class="las la-sort"></span> ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <% data.forEach((contact ,i)=> {%>
+                                    <td>#502<%= i %>
+                                    </td>
+                                    <td>
+                                        <div class="client">
+                                            <!-- <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div> -->
+                                            <div class="client-info">
+                                                <h4>
+                                                    <%= contact.name %>
+                                                </h4>
+                                                <small>
+                                                    <%= contact.email %>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <!-- <td> bruno@crossover.org </td> -->
+                                    <td>
+                                        <%= contact.phone %>
+                                    </td>
+                                    <td>
+                                        <%= contact.message.length>20 ? contact.message.slice(0,30)+'...' : contact.message %>
+                                    </td>
+                                    <td>
+                                        <div class="actions">
+                                            <span class="las la-eye" onclick="{toggleModal('<%= contact.name %>','<%= contact.email %>' ,'<%= contact.phone %>','<%= contact.message %>')}"></span>
+                                            <a href="/contactUs/<%= contact._id %>"><span class="las la-trash" style="color: rgb(63, 1, 1);"></span></a>
+                                        </div>
+                                    </td>
+                            </tr>
+                            <% }) %>
+                                <tr>
+                                    <td>#5033</td>
+                                    <td>
+                                        <div class="client">
+                                            <!-- <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div> -->
+                                            <div class="client-info">
+                                                <h4>Andrew Bruno</h4>
+                                                <small>bruno@crossover.org</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td> 9989899898</td>
+                                    <td> hello my firstfbfb ffff fffd... </td>
+                                    <td>
+                                        <div class="actions">
+                                            <span class="las la-eye"></span>
+                                            <span class="las la-trash"></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#5033</td>
+                                    <td>
+                                        <div class="client">
+                                            <!-- <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div> -->
+                                            <div class="client-info">
+                                                <h4>Andrew Bruno</h4>
+                                                <small>bruno@crossover.org</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td> 9989899898</td>
+                                    <td> hello my firstfbfb ffff fffd... </td>
+                                    <td>
+                                        <div class="actions">
+                                            <span class="las la-eye"></span>
+                                            <span class="las la-trash"></span>
+                                        </div>
+                                    </td>
+                                </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- model  -->
+<div class="modal-container" onclick="toggleModal()"></div>
+<div class="modal-window">
+    <h2>Contact Us</h2>
+    <hr><br>
+    <p><b>Name : </b><s id="name"></s></p>
+    <p><b>Email : </b><s id="email"></s></p>
+    <p><b>Phone Mo. : </b><s id="phone"></s></p>  
+    <p><b>Message : </b><br><s id="msg"></s></p>
+</div>
+
+<!-- model Script -->
+<script>
+    const toggleModal = (name, email, phone, msg) => {
+
+        document.getElementById("name").innerHTML = name;
+        document.getElementById("email").innerHTML = email;
+        document.getElementById("phone").innerHTML = phone;
+        document.getElementById("msg").innerHTML = msg;
+
+        const bodyClassList = document.body.classList;
+        if (bodyClassList.contains("open")) {
+            bodyClassList.remove("open");
+            bodyClassList.add("closed");
+        } else {
+            bodyClassList.remove("closed");
+            bodyClassList.add("open");
+        }
+    };
+</script>

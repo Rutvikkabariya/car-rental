@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- page title -->
+    <title>Speedo Car Rental | Services</title>
+
+    <!-- Font Awosome  -->
+    <link rel="stylesheet" href="frontend/css/all.min.css" type="text/css">
+
+    <!--Favicon -->
+    <link rel="icon" href="../../newImg/favicon.ico" type="Image/png">
+
+    <!-- Font Awosome  -->
+    <link rel="stylesheet" href="frontend/css/stylesheet.css" type="text/css">
+
+    <!--Owal Carousel css -->
+    <link rel="stylesheet" href="frontend/css/owl.carousel.min.css" type="text/css">
+
+    <!--Css Link  -->
+    <link rel="stylesheet" href="frontend/css/Style.css" type="text/css">
+
+    <!-- <link rel="stylesheet" href="/profile.css"> -->
+
+</head>
+
+<body>
+
+         <!-- header -->
+        <header>
+            <!-- top-bar -->
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="site-title">
+                            <p>Book A Car And Enjoy Your Beutifull jouny</p>
+                        </div>
+                        <div class="site-details">
+                            <ul>
+                                <li>
+                                    <a href="tel:500.369.2580"><i class="fa-solid fa-phone"></i>+88888-88888</a>
+                                </li>
+                                <li>
+                                    <a href="mailto:info@zentec.com"><i class="fa-solid fa-envelope-open-text"></i> info@speedocarrental.in</a>
+                                </li>
+                                <li>
+                                    <a href="/login"><i class="fa-solid fa-envelope-open-text"></i>LOGIN</a>
+                                </li>
+                                <li>
+                                    <a href="/register"><i class="fa-solid fa-envelope-open-text"></i> Register</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Menu-Bar -->
+            <div class="menu-bar">
+                <div class="container">
+                    <div class="row ">
+                        <div class="logo">
+                            <a href="Index.html">
+                                <img src="../../newImg/favicon.ico" alt="logo">
+                            </a> 
+                        </div>
+                        <nav class="menu">
+                            <ul>
+                                <li class="home">
+                                    <a href="/">Home</a>
+                                </li>
+                                <li class="aboutus">
+                                    <a href="/aboutus">About Us</a>
+                                </li>   
+                                <li class="booknow">
+                                    <a href="/getBooking">Book Now</a>
+                                </li>
+                                <li class="popular">
+                                    <a href="/allCar">Popular Fleets</a>
+                                </li>
+                                <li class="feedback">
+                                    <a href="/getFeedback">Feedback</a>
+                                </li>
+                                <li>
+                                    <a href="/getContactUs">Contact Us</a>
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+       
+        <!-- main -->
+        <main>
+            <!-- slider -->
+            <section class="slider-bg">
+                <div class="container">
+                    <div class="owl-carousel owl-theme fadeOut">
+                        <div class="item">
+                            <div class="carousel-caption">
+                                <div class="carousel-content">
+                                    <span>Speedo - Car Rental Service</span>
+                                    <h2><strong> Book a cab </strong>online and start with your journy with speedo car</h2>
+                                    <p>book a cab from range of cars availbale book for one way. round trip, self drive, rent a car and lowest prices & well maintained cars</p>
+                                    <a href="/getBooking" class="button">Book Now</a>
+                                    <a href="#" class="demo">Other Details</a>
+                                </div>
+                                <div class="carousel-img">
+                                    <img src="/frontend/Image/content-image-1.png" alt="content-image-1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="carousel-caption">
+                                <div class="carousel-content">
+                                    <span>Speedo - Car Rental Service</span>
+                                    <h2> <strong>Book a cab </strong>online and start with your journy with speedo car</h2>
+                                    <p>book a cab from range of cars availbale book for one way. round trip, self drive, rent a car and lowest prices & well maintained cars</p>
+                                    <a href="/getBooking" class="button">Book Now</a>
+                                    <a href="#" class="button2">Other Details</a>
+                                </div>
+                                <div class="carousel-img">
+                                    <img src="/frontend/image/content-image-2.png" alt="content-image-2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+             <!-- all car blog -->
+             <section class="py-120 service-bg customer">
+                <div class="container">
+                    <div class="section-title">
+                        <span></span>
+                        <h2>Popular Fleets</h2>                     
+                    </div>
+                    <div class="row">
+                        <% data.forEach((car)=>{ %>
+                        <div class="news-box">  
+                            <div class="service-inner-box">
+                                <div class="service1-icon">
+                                    <div class="image-content"></div>
+                                    <img src="newImg/<%= car.image%>" alt="blog1" >
+                                </div>    
+                                <div class="news-content">
+                                        <a href="#"><%= car.detail %></a>
+                                    <p><%= car.car_name%> | <%= car.km%>km/h  </p>
+                                    <ul class="news-detail">
+                                        <li>
+                                            <a>$<%= car.price%> / Per Day</a>
+                                        </li>
+                                        <!-- <li><a href="">ddd</a></li> -->
+                                        <li>
+                                            <a href="#">model:<%= car.model%></a>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                                
+                                <div class="more-detail">
+                                    <a href="/getBooking">Booking</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </section>
+            <!-- service -->
+            <section class="py-120 service-bg"> 
+                <div class="container">
+                    <div class="row">
+                        <div class="service-box">
+                            <div class="section-title">
+                                <span>Speedo Services</span>
+                                <h2><span>Our Popular Services</span></h2>
+                                <p>Best Service In Our Company</p>
+                            </div>
+                            <div class="service-inner-box">
+                                <div class="service-icon">
+                                    <div class="icon-pattern"></div>
+                                    <img src="frontend/Image/City-Transfer.jpg" alt="City-Transfer" >
+                                </div>    
+                                <div class="service-content">
+                                    <h3>
+                                        <a href="#">City Transfer</a>
+                                    </h3>
+                                    <p>Drivers should be familiar with the city's roads, traffic patterns, and popular destinations. They should also be courteous, professional, and able to provide assistance or recommendations to passengers if needed.</p>
+                                </div>
+                                <div class="more-detail">
+                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-box">
+                            <div class="service-inner-box">
+                                <div class="service-icon">
+                                    <div class="icon-pattern"></div>
+                                    <img src="frontend/Image/City-Tour.jpg" alt="City-Tour" >
+                                </div>    
+                                <div class="service-content">
+                                    <h3>
+                                        <a href="#">Whole City Tour</a>
+                                    </h3>
+                                    <p>Provide easy access to car rental search functionality, allowing users to input their pickup location, dates, and car preferences right away.</p>
+                                </div>
+                                <div class="more-detail">
+                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="service-inner-box">
+                                <div class="service-icon">
+                                    <div class="icon-pattern"></div>
+                                    <img src="frontend/Image/Unlimited-Miles-Car-Rental.jpg" alt="Unlimited-Miles-Car-Rental" >
+                                </div>    
+                                <div class="service-content">
+                                    <h3>
+                                        <a href="#">Unlimited Miles Car Rental</a>
+                                    </h3>
+                                    <p>Unlimited miles car rental is particularly popular among travelers embarking on road trips, whether for leisure or business purposes. It allows them to traverse long distances comfortably and at their own pace, stopping at various attractions along the way without worrying about mileage limitations.</p>
+                                </div>
+                                <div class="more-detail">
+                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-box">
+                            <div class="service-inner-box">
+                                <div class="service-icon">
+                                    <div class="icon-pattern"></div>
+                                    <img src="frontend/Image/Fast-&-Easy-Booking.jpg" alt="Fast-&-Easy-Booking" >
+                                </div>    
+                                <div class="service-content">
+                                    <h3>
+                                        <a href="#">Fast & Easy  Booking</a>
+                                    </h3>
+                                    <p>Provide multiple secure payment options to accommodate different preferences and ensure the safety of users' financial information.</p>
+                                </div>
+                                <div class="more-detail">
+                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="service-inner-box">
+                                <div class="service-icon">
+                                    <div class="icon-pattern"></div>
+                                    <img src="frontend/Image/Many-Picup-Locations.jpg" alt="Many-Picup-Locations" >
+                                </div>    
+                                <div class="service-content">
+                                    <h3>
+                                        <a href="#">Many Pickup Locations</a>
+                                    </h3>
+                                    <p> Having many pickup locations improves accessibility for customers, especially in densely populated areas or cities with multiple transportation hubs. This ensures that customers can easily access rental vehicles without having to travel long distances to a centralized rental location.</p>
+                                </div>
+                                <div class="more-detail">
+                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="service-link">
+                            <p>We're ready to discover and unlock your potential. <a href="#">Best Service In Over Company</a> or Call us Today! <a href="tel:+88888-88888">+88888-88888</a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- customers -->
+            <section class="py-120 customer">   
+                <div class="container">
+                    <div class="section-title">
+                        <span>Speedo car Services</span>
+                        <h2>We Are committed To Provide <br>Safe  Ride Solutions</h2>
+                        <p>Over Company is Provide Best Services in Whole Contry From Speedo Car Rental And Many Others Facilty <br> Are Provide form Speedo Car Rental Company.
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="location-map">
+                            <img src="frontend/image/display car.png" alt="display car">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-120 contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="contact-info">
+                            <h2>We Are Committed To Provide Safe Ride Solutions And Provide Best Service</h2>
+                            <a href="#" class="button">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- member -->
+            <section class="py-120 data">
+                <div class="container">
+                    <div class="row">
+                        <div class="data-count">
+                            <div class="system">
+                                <h3>System Integrations Done</h3>
+                                <span>1458</span>
+                                <p>FOR CUSTOMERS</p>
+                            </div>
+                        </div>
+                        <div class="data-count">
+                            <div class="member">
+                                <h3>Powerful Team To Focus</h3>
+                                <span>160+</span>
+                                <p>EXPERT MEMBERS</p>
+                            </div>
+                        </div>
+                        <div class="data-count">
+                            <div class="launched">
+                                <h3>Launched Case Studies</h3>
+                                <span>1080</span>
+                                <p>FULLY LAUNCHED</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="divider"></section>
+            <!-- Discount Offer -->
+            <section class="py-120 case-studies">
+                <div class="container">
+                    <div class="section-title">
+                        <span>Cashback Offer</span>
+                        <h2>Up to 20% off</h2>
+                        <p>Don't miss the special summer offer</p>
+                    </div>
+                    <div class="row">
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="case-block">
+                                    <div class="case-img">
+                                        <img src="frontend/image/car_discount.jpg" alt="case-image-1">
+                                    </div>
+                                    <div class="case-content">
+                                        <div class="case-title">
+                                            <h4>
+                                                <a href="#">Special Summer Offer</a>
+                                            </h4>
+                                            <span>up to 20% off</span>
+                                        </div>
+                                        <div class="case-content-box">
+                                            <p>Book a car for a special offer and benifits that's offer</p>
+                                            <a href="/getBooking">Book Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="case-block">
+                                    <div class="case-img">
+                                        <img src="frontend/image/dis.jpg" alt="case-image-2">
+                                    </div>
+                                    <div class="case-content">
+                                        <div class="case-title">
+                                            <h4>
+                                                <a href="#">Vaction Offer</a>
+                                            </h4>
+                                            <span>up to 50% off</span>
+                                        </div>
+                                        <div class="case-content-box">
+                                            <p>That car for a special offer and benifits that's offer</p>
+                                            <a href="/getBooking">Book Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="case-block">
+                                    <div class="case-img">
+                                        <img src="frontend/image/car_discount12jpg.jpg" alt="case-image-1">
+                                    </div>
+                                    <div class="case-content">
+                                        <div class="case-title">
+                                            <h4>
+                                                <a href="#">Friday Discount</a>
+                                            </h4>
+                                            <span>up to 50 % off</span>
+                                        </div>
+                                        <div class="case-content-box">
+                                            <p>Book a car for a special offer and benifits that's offer</p>
+                                            <a href="/getBooking">Book Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="service-link">
+                            <p>We're ready to discover and unlock your potential.<span> Call us Today!</span> <a href="tel:258-000-3694">258-000-3694</a></p>
+                        </div>
+                    </div>
+                </div>
+            </section> 
+        <!-- Contact Us -->
+        <section class="py-120 service-bg">
+            <div class="container">
+                <div class="row justify-content-between align-items-center">
+                    <div class="about-detail">
+                        <div class="section-title">
+                            <span>ZenTec - Welcome To IT Solutions</span>
+                            <h2>Contact Us <span>ZenTech IT Solutions</span></h2>
+                        </div>
+                        <div class="Appointment-content">
+                            <p>Hello, thank you for your interest in our company! We're always happy to hear from our customers. If you have any questions or comments, please don't hesitate to reach out. You can contact us by phone at +88888 88888, by email , or by filling out the contact form below. We will respond to your inquiry as soon as possible.</p>
+                            <div class="Appointment-detail">
+                                <ul class="app-image">
+                                    <li>
+                                        <img src="/frontend/image/Easier-To-Implement.png" alt="Easier-To-Implement">
+                                        <div class="icon-pattern"></div>
+                                        <div class="app-content">
+                                        <h3>Easier To Implement</h3>
+                                        <p>Sed incididunt labore dolore magna sed aliquatenim veniam quis ipsum nostrud exercitation ullamco</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="app-image">
+                                    <li>
+                                        <img src="/frontend/image/Increase-Growth-Rates.png" alt="Increase-Growth-Rates">
+                                        <div class="icon-pattern"></div>
+                                        <div class="app-content">
+                                        <h3>Increase Growth Rates</h3>
+                                        <p>Sed incididunt labore dolore magna sed aliquatenim veniam quis ipsum nostrud exercitation ullamco</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="app-image">
+                                    <li>
+                                        <img src="/frontend/image/Branding-Of-The-Future.png" alt="Branding-Of-The-Future">
+                                        <div class="icon-pattern"></div>
+                                        <div class="app-content">
+                                        <h3>Need Any Help?</h3>
+                                        <p>+88888 88888</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="appointment-book">
+                        <div class="appointment-img">
+                            <img src="/frontend/image/featured-image-1.jpg" alt="featured-image-1">
+                        </div>
+                        <div class="form-box">
+                            <div class="form-box-title"> 
+                                <h3>Contact Us</h3>
+                                <p>We Help Customers And Send The Inforamation By Speedo</p>
+                                <h4><%= (typeof message !=='undefined' ) ? message : '' %></h4>
+                            </div>
+                            <form action="/contactUs" method="post">
+                                <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+                                <input type="email" name="email" placeholder="Email" class="form-input" required>
+                                <input type="number" name="phone" placeholder="Phone number" class="form-input" required>
+                                <textarea name="message" id="" cols="53" rows="6" placeholder="Write Your message..."class="form-input"></textarea>
+                                <!-- <select name="" id="" class="form-inputs">
+                                    <option value="">Inquire about</option>
+                                    <option value="">IT Cloud Integration</option>
+                                    <option value="">Business Security</option>
+                                    <option value="">Product Engineering</option>
+                                </select> -->
+                                <br>
+                                <button type="submit" class="submit button">Contact Us</button>
+                            </form>                                
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+            <!-- review -->
+            <section class="py-120 review-image">
+                <div class="container">
+                    <div class="row">
+                        <div class="review-box">
+                            <div class="fadeOut owl-carousel owl-theme">
+                                <% feed.forEach((feedback)=>{ %>
+                                <div class="item">
+                                    <i class="fa-solid fa-comments"></i>
+                                    <span>Speedo Customer Feedback</span>
+                                    <p><%= feedback.message %></p>
+                                    <h4><%= feedback.name %></h4>
+                                    <h5>happy customer</h5>
+                                </div>
+                                <% }) %>
+                                <div class="item">
+                                    <i class="fa-solid fa-comments"></i>
+                                    <span>Speedo Customer Feedback</span>
+                                    <p>Quis nostrud exercitation duis aute irure dolor reprehenderit voluptate. velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecas cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                                    <h4>Parthiv Kathiriya</h4>
+                                    <h5>CEO,Speedo Car</h5>
+                                </div>
+                                <div class="item">
+                                    <i class="fa-solid fa-comments"></i>
+                                    <span>Speedo Customer Feedback</span>
+                                    <p>Quis nostrud exercitation duis aute irure dolor reprehenderit voluptate. velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecas cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                                    <h4>Rutvik Kabriya</h4>
+                                    <h5>CEO,Speedo Car</h5>
+                                </div>
+                                <div class="item">
+                                    <i class="fa-solid fa-comments"></i>
+                                    <span>Speedo Customer Feedback</span>
+                                    <p>Quis nostrud exercitation duis aute irure dolor reprehenderit voluptate. velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecas cupidatat non proident, sunt in culpa qui officia deserunt.</p>
+                                    <h4>Sunny Gond</h4>
+                                    <h5>CEO,Speedo Car</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- about -->
+            <section class="py-120" id="#aboutus">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="about-detail">
+                            <div class="section-title">
+                                <span>ABOUT OUR COMPANY</span>
+                                <h2>Best Car Rental & <span>Cab Booking Services</span></h2>
+                            </div>
+                            <div class="about-content">
+                                <p>Speedo Car Rental is a leading cab rental company. We have a wide range of car fleet which includes economy cars, SUV and MUV cars and Luxury cars.<br><br>
+                                    With the trust of our polite driver you can completely rely on us. We give you tailor made tour packages like Char Dham Yatra, Golden Triangle Tour, Trip to Himachal and Leh Ladakh Etc.</p>
+                                <ul>
+                                    <li>Competitive Prices</li>
+                                    <li>Breakdown Assistance</li>
+                                    <li>Trusted Rent Service</li>
+                                    <li>24x7 Customer Support</li>
+                                    <li>+88888-88888</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="about-image">
+                            <div class="about-img">
+                                <img src="frontend/Image/about-image-11.jpg" alt="about-image-11">
+                            </div>
+                            <div class="about-img">
+                                <img src="frontend/Image/about-image-12.jpg" alt="about-image-12">
+                            </div>
+                            <div class="about-img">
+                                <img src="frontend/Image/about-image-13.jpg" alt="about-image-13">
+                            </div>
+                            <div class="about-img">
+                                <img src="frontend/Image/about-image-14.jpg" alt="about-image-14">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- company logo -->
+            <section class="company-image">
+                <div class="container ">
+                    <div class="row">
+                        <div class="fadeOut owl-carousel owl-theme">
+                            <div class="company-box">
+                                <div class="item">
+                                    <img src="frontend/image/1.png" alt="1">
+                                </div>
+                                <div class="item">
+                                    <img src="frontend/image/2.png" alt="2">
+                                </div>
+                                <div class="item">
+                                    <img src="frontend/image/3.png" alt="3">
+                                </div>
+                                <div class="item">
+                                    <img src="frontend/image/4.png" alt="4">
+                                </div>
+                                <div class="item">
+                                    <img src="frontend/image/5.png" alt="5">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+      <!--footer-->
+<footer class="py-120">
+    <div class="container">
+        <div class="row">
+            <div class="company-about">
+                <a href="#"><img src="../../newImg/favicon.ico" alt="footer-logo"></a>
+                <p>Our Car rental provide best service in our customer and alwase, and that beutifull journy</p>
+                <div class="company-detail">
+                    <ul>
+                        <li>
+                            <p>151 Simada Junction,surat 395010</p>
+                        </li>
+                        <li>    
+                            <a href="tel:(+1) 500.369.2580">Call us <b>+88888-88888</b></a>
+                        </li>
+                        <li>
+                            <a href="mailto:support@zentec.com">info@speedocarrental.in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="company-support">
+                <h3>OUR SERVICES</h3>
+                <div class="company-link">
+                    <ul>
+                        <li>Airport Transfer</li>
+                        <li>Business Transfer</li>
+                        <li>Luxury Vehicles</li>
+                        <li>Events & Wedding</li>
+                        <li>Chauffeur Services  </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="company-support">
+                <h3>Links</h3>
+                <div class="company-link">
+                    <ul>
+                        <li>Home</li>
+                        <li>About us</li>
+                        <li>Popular Fleets</li>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="company-support">
+                <h3>What We Do</h3>
+                <div class="company-link">
+                    <ul>
+                        <li>View Help Topics</li>
+                        <li>Latest Articles</li>
+                        <li>Technology Consul</li>
+                        <li>Terms Of Service</li>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+            </div> 
+            <div class="company-subscibe">
+                <input type="email" name="email" placeholder="Email" class="form-input">
+                <button type="submit" class="ssubmit"></button>
+                <div class="company-updates">
+                    <span>Get the latest news & updates</span>
+                </div>    
+                <div class="company-subscibe-icon">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                    <i class="fa-brands fa-pinterest"></i>      
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+        <script src="frontend/js/jquery.min.js" ></script>
+        <script src="frontend/js/owl.carousel.min.js" ></script>
+        <script>
+            $(document).ready(function() {
+                $('.fadeOut').owlCarousel({
+                    items: 1,
+                    animateOut: 'fadeOut',
+                    loop: true,
+                    autoplay: true,
+                });
+            })
+            $(document).ready(function() {
+              var owl = $('.owl-carousel');
+              owl.owlCarousel({
+                margin: 10,
+                nav: true,
+                loop: true,
+                items: 2
+              })
+            })
+            $(document).ready(function() {
+              var owl = $('.company-box, owl-carousel');
+              owl.owlCarousel({
+                margin: 10,
+                nav: true,
+                loop: true,
+                items:5,
+                autoplay: true,
+              })
+            })
+        </script>
+<script>
+    function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+</body>
+
+</html>

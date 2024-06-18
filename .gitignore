@@ -1,0 +1,13 @@
+# Folders to ignore
+/node_modules/
+/public
+/package-lock.json
+
+
+# OS or Editor folders
+._*
+.cache
+.DS_Store
+.idea
+.vscode
+.env
