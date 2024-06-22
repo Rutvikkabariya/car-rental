@@ -21,6 +21,7 @@ router.post("/register", AuthController.register);
 router.get('/login', AuthController.getLogin)
 router.post("/login", AuthController.login);
 
+// Forget Password
 router.get("/forget", AuthController.forgetPage);
 router.post("/otp", AuthController.sendOTP);
 router.post("/forget", AuthController.forgetPassword);
@@ -32,8 +33,8 @@ router.get('/admin',middleware, DashboardController.admin)
 router.get('/', DashboardController.Dashboard)
 router.get('/home',middleware, DashboardController.home)
 
+// about us
 router.get('/aboutUs', middleware,DashboardController.AboutUs)
-
 
 // Car Booking
 router.get('/getBooking', middleware, CarbookingController.getBooking)
@@ -91,6 +92,7 @@ router.get("/allUsers", ProfileController.Profile_allUser);
 router.get("/allUsers", ProfileController.Profile_allUser);
 router.get("/userDelete/:id", ProfileController.user_dlt)
 
+// logout
 router.get('/logout',middleware, AuthController.logout)
 
 

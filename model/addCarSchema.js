@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const AddCar = new mongoose.Schema({
+const CarSchema = new mongoose.Schema({
   car_name: {
     type: String,
     required: true
@@ -35,4 +35,4 @@ const AddCar = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("AddCar Data", AddCar);
+module.exports = mongoose.model("CarData", CarSchema);

@@ -14,8 +14,6 @@ const getAddCar = (req, res) => {
 const addCar = async (req, res) => {
   const { car_name, car_brand,detail, model, km, platnumber,price } = req.body;
 
-  console.log(req.body)
-
   // if(!req.session.user.role)
 
   try {

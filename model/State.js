@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
 
 const AddState = new mongoose.Schema({
-    state: String,
+    state: {
+        type: String,
+        required: true
+      },
 
 });
 
-module.exports = mongoose.model("AddState Data", AddState);
+module.exports = mongoose.model("StateData", AddState);

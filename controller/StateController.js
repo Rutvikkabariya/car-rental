@@ -4,6 +4,7 @@ var nodemailer = require("nodemailer");
 const mongodb = require("mongodb");
 
 
+//  Add State
 const state_data = async (req, res) => {
     const { state } = req.body;
 
@@ -17,17 +18,18 @@ const state_data = async (req, res) => {
     });
 };
 
-
+//  State value
 const state_value = async (req, res) => {
-    State.find({}, function (err, Product) {
+    State.find({}, function (err, data) {
         if (err) {
             res.send({ message: "don't get data" });
         } else {
-            res.send(Product);
+            res.send(data);
         }
     });
 };
 
+//  state delete
 const state_de = async (req, res) => {
     const data = await State.deleteOne({
         _id: new mongodb.ObjectId(req.params.id),

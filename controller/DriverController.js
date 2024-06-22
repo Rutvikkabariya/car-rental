@@ -7,7 +7,8 @@ const mongodb = require("mongodb");
 const addDriver = async (req, res) => {
     const { driver, phone, email, licence, alternativephone, state } = req.body;
  
-    const user = new Driver({
+    try{
+        const user = new Driver({
             driver,
             phone,
             email,
@@ -15,13 +16,16 @@ const addDriver = async (req, res) => {
             state,
             alternativephone
         });
-    user.save((err) => {
+        user.save((err) => {
             if (err) {
                 res.send(err);
             } else {
                 res.send({ message: "succes" });
             }
         });
+    } catch(err){
+        res.send(err)
+    }
 };
 
 // Get Driver
@@ -39,7 +43,7 @@ const getDriver = async (req, res) => {
 // Update Driver Info
 const updateDriver = async(req, res) => {
 
-    const {driver,phone,email,licence,state,alternativephone} = req.body;
+    const {driver,phone,email,license,state,alternativephone} = req.body;
     await Driver.findByIdAndUpdate(
         {
             _id : req.body.id
@@ -48,7 +52,7 @@ const updateDriver = async(req, res) => {
             driver,
             phone,
             email,
-            licence,
+            license,
             state,
             alternativephone
         }

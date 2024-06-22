@@ -11,9 +11,8 @@ const ejsLayouts = require("express-ejs-layouts");
 const path = require('path');
 
 // Database Connection
-
-const localhost = "mongodb://127.0.0.1:27017/CAR";
-mongoose.connect( localhost, {useNewUrlParser: true},
+const localhost = "mongodb://localhost:27017/CAR";
+mongoose.connect( process.env.URL, {useNewUrlParser: true},
   () => {
     console.log("DB connected ");
   }
@@ -37,7 +36,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(session({
   store: MongoStore.create({ mongoUrl: localhost }),
-  secret: 'jbufhdhdhkhblub',
+  secret: process.env.SECRET_KEY,
   saveUninitialized: true,
   cookie: {
       /** millisecond * second * minute * hour * 7  = 1 week */
@@ -51,4 +50,4 @@ const productRoutes = require("./routes/router");
 app.use("/", productRoutes);
 
 
-app.listen(8200, () => console.log("Hello world app listening on port!"));
+app.listen(process.env.PORT, () => console.log("Hello world app listening on port!"));

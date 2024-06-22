@@ -12,15 +12,14 @@ const validate = Joi.object({
 });
 
 
-// user page contactUs
+// user - contactUs page
 const userContactUs = (req, res) => {
-
   res.render('frontend/contactUs')
 
 }
 
 
-// Comment Data - ContactUs
+// ContactUs Data cerate
 const contactUs = async (req, res) => {
 
   // joi validation
@@ -31,6 +30,7 @@ const contactUs = async (req, res) => {
     return res.redirect('back');
   }
 
+  // create contact us
   const { name, email, message, phone } = req.body;
   const user = new Contact({
     name,
@@ -47,7 +47,7 @@ const contactUs = async (req, res) => {
   });
 };
 
-// Comment send
+// admin - Contact us send
 const getContactUs = async (req, res) => {
   Contact.find({}, function (err, data) {
     if (err) {
@@ -58,7 +58,7 @@ const getContactUs = async (req, res) => {
   });
 };
 
-// Comment delete
+// Contact us delete
 const contactUs_dlt = async (req, res) => {
   console.log(req.params.id)
   const data = await Contact.deleteOne({

@@ -19,6 +19,8 @@ const home = async(req, res) => {
   res.render('frontend/home',{data,feed})
 }
 
+
+// about us 
 const AboutUs = (req, res) => {
   res.render('frontend/aboutus')
 }
@@ -27,18 +29,23 @@ const AboutUs = (req, res) => {
 // admin dashboard
 const admin = async (req, res) => {
 
-  const user = await UserSchema.find().count();
-  const booking = await Booking.find().count();
-  const car = await Car.find().count();
+  try{
+    const user = await UserSchema.find().count();
+    const booking = await Booking.find().count();
+    const car = await Car.find().count();
+    const data = await Car.find()
 
-  const data = await Car.find()
-  res.render('admin/admin_dash', { 
-    layout: './admin/layout/master_app', 
-    data, 
-    user, 
-    booking, 
-    car 
-  })
+    res.render('admin/admin_dash', { 
+      layout: './admin/layout/master_app', 
+      data, 
+      user, 
+      booking, 
+      car 
+    })
+  } catch(err){
+    res.send(err)
+  }
+  
 }
 
 

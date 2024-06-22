@@ -18,9 +18,11 @@ const getRegister = (req, res) => {
 // joi validation
 const validate = Joi.object({
   // _csrf: Joi.string().required(),
-  name: Joi.string().required().min(3).max(25).message({"string.pattern.base":"Invalid username",
-    "string.min":"minimum 2 character required",
-    "string.max":"maximum 30 characters allowed"}),
+  name: Joi.string().required().min(3).max(25).message({
+    "string.pattern.base": "Invalid username",
+    "string.min": "minimum 2 character required",
+    "string.max": "maximum 30 characters allowed"
+  }),
   email: Joi.string().email().required().min(3).max(25),
   password: Joi.string().min(8).max(25).required()
 });
@@ -40,6 +42,7 @@ const register = async (req, res) => {
 
   console.log('register')
 
+  // Send Mail
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -75,37 +78,35 @@ const register = async (req, res) => {
 
   const isMatch = await UserSchema.findOne({ email: email })
 
-  if (isMatch && !req.body) {
-    res.render('frontend/register', { layout: false, msg: "already register" });
-    return;
-  } else {
-    let user = new UserSchema({
-      name,
-      role: 'user',
-      email,
-      phone,
-      gender,
-      dob,
-      address,
-      password,
-    });
+    if (isMatch && !req.body) {
+      res.render('frontend/register', { layout: false, msg: "already register" });
+      return;
+    } else {
+      let user = new UserSchema({
+        name,
+        role: 'user',
+        email,
+        phone,
+        gender,
+        dob,
+        address,
+        password,
+      });
 
-    user.save((err, result) => {
-      if (err) {
-        res.send(err);
-      } else {
-        mailSend
-        req.session.user = result;
-        // res.send({ message: "success" });
-        if (req.session.user.role === 'user') {
-          res.redirect('/home')
+      user.save((err, result) => {
+        if (err) {
+          res.send(err);
         } else {
-          res.send('errs')
-          // res.redirect('/admin_dash')
+          mailSend
+          req.session.user = result;
+          if (req.session.user.role === 'user') {
+            res.redirect('/home')
+          } else {
+            res.send('errs')
+          }
         }
-      }
-    });
-  }
+      });
+    }
 
   return
 };
@@ -156,53 +157,54 @@ const forgetPage = (req, res) => {
 
 // sendOTP - ForgetPassword
 const sendOTP = async (req, res) => {
-  const { email } = req.body;
 
-  console.log(email)
+    const { email } = req.body;
 
-  const token = Math.floor(100000 + Math.random() * 900000)
+    const token = Math.floor(100000 + Math.random() * 900000)
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.EMAIL,
-      pass: process.env.PASSWORD,
-    },
-  });
+    // Send Mail
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
+      },
+    });
 
-  const mailOptions = {
-    from: process.env.EMAIL,
-    to: email,
-    subject: "Forget Password OTP - Speedo car rental",
-    html: `
-      <p>Your OTP For Forget Password:</p>
-      <p>Please enter this OTP to forget your password </p>
-      <h3>${token}</h3>
-      `
-  };
-  // const info = await transporter.sendMail(mailOptions);
+    const mailOptions = {
+      from: process.env.EMAIL,
+      to: email,
+      subject: "Forget Password OTP - Speedo car rental",
+      html: `
+        <p>Your OTP For Forget Password:</p>
+        <p>Please enter this OTP to forget your password </p>
+        <h3>${token}</h3>
+        `
+    };
+    // const info = await transporter.sendMail(mailOptions);
 
-  try {
-    UserSchema.findOne({ email: email }, async (err, data) => {
+    try {
+      UserSchema.findOne({ email: email }, async (err, data) => {
 
-      if (!data) {
-        res.render('frontend/forget', { layout: false, msg: "Email is not registered" })
-      } else {
-        console.log(email)
-        const tkn = new tokenSchema({
-          email: email,
-          token: token
-        })
-        await tkn.save();
-        // info
-        res.render('frontend/forgetPassword', { layout: false, msg: `After 5 minutes OTP will be expired OTP:${token}`, mail: email })
-      }
+        if (!data) {
+          res.render('frontend/forget', { layout: false, msg: "Email is not registered" })
+        } else {
+          console.log(email)
+          const tkn = new tokenSchema({
+            email: email,
+            token: token
+          })
+          await tkn.save();
+          // info
+          res.render('frontend/forgetPassword', { layout: false, msg: `After 5 minutes OTP will be expired OTP:${token}`, mail: email })
+        }
 
-    })
-  }
-  catch (err) {
-    console.log(err)
-  }
+      })
+    }
+    catch (err) {
+      console.log(err)
+    }
+    
 }
 
 // ForgetPassword
@@ -229,7 +231,7 @@ const forgetPassword = async (req, res) => {
         }
       })
       .then((result) => {
-        res.render('frontend/forgetPassword', { layout: false, msg: 'Password Is Succsessfully change' })
+        res.render('frontend/forgetPassword', { layout: false, msg: 'Password Is Successfully change' })
       })
       .catch((err) => {
         console.log(err);
@@ -264,22 +266,3 @@ module.exports = {
   forgetPassword,
   logout
 };
-
-
-
-function isPrime(num) {
-
-  if (num <= 1) return false;
-
-  for (let i = 2; i <= Math.sqrt(num); i++) {
-
-    if (num % i === 0) return false;
-
-  }
-
-  return true;
-
-}
-
-
-console.log(isPrime(4))

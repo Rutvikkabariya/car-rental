@@ -2,6 +2,7 @@
 /node_modules/
 /public
 /package-lock.json
+/views
 
 
 # OS or Editor folders

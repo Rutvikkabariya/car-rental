@@ -80,23 +80,36 @@ const feed_back = async (req, res) => {
   }
 };
 
-// Feedback Data - Get
+// admin -Feedback Data - Get
 const feedback_data = async (req, res) => {
-  Feedback.find({}, function (err, data) {
-    if (err) {
-      res.send({ message: "don't get data" });
-    } else {
-      res.render('admin/feedback',{layout:'./admin/layout/master_app',data})
-    }
-  });
+
+  try{
+      Feedback.find({}, function (err, data) {
+      if (err) {
+        res.send({ message: "don't get data" });
+      } else {
+        res.render('admin/feedback',{layout:'./admin/layout/master_app',data})
+      }
+    });
+
+  } catch(err){
+    res.send(err)
+  }
 };
 
 // Feedback delete
 const feedback_dlt = async (req, res) => {
-  const data = await Feedback.findByIdAndDelete({
-    _id: req.params.id,
-  });
-  res.redirect('/allFeedback');
+
+  try{
+    const data = await Feedback.findByIdAndDelete({
+      _id: req.params.id,
+    });
+    res.redirect('/allFeedback');
+
+  } catch(err){
+    res.send(err)
+  }
+
 };
 
 module.exports = {

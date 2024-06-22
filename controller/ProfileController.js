@@ -16,7 +16,6 @@ const allUserData = async (req, res) => {
         res.json({ message: "don't get data" });
       } else {
         res.render('admin/all_user',{layout:'./admin/layout/master_app',data})
-        // res.json({data})
       }
     });
   };
@@ -37,19 +36,25 @@ const getProfile = async(req,res) =>{
 const addProfile = async (req, res) => {
     const {user_id, gender, dob, address} = req.body;
 
-    const user = new Profile({
-        user_id,
-        gender,
-        dob,
-        address,
-    });
-    await user.save((err) => {
-        if (err) {
-            res.send(err);
-        } else {
-            res.json({ message: "success" });
-        }
-    });
+    try{
+        const user = new Profile({
+            user_id,
+            gender,
+            dob,
+            address
+        });
+
+        await user.save((err) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.json({ message: "success" });
+            }
+        });
+
+    }catch(err){
+        res.send(err)
+    }
 }
 
 // Profile Update
@@ -65,7 +70,7 @@ const Profile_updateid = async (req, res) => {
 
 const p_Update = async (req, res) => {
     const { name, email, phone, gender, address } = req.body;
-    console.log(req.body)
+
     await UserSchema.findByIdAndUpdate(
         { _id: req.session.user._id },
         {
@@ -95,8 +100,8 @@ const p_Update = async (req, res) => {
 // Profile Data Get
 const Profile_allUser = async (req, res) => {
 
-    let id = "65f9dfe01887b03a39ba5272"
 
+ try{
     const data = await Profile.aggregate([
         // {
         //     $match:{
@@ -124,11 +129,15 @@ const Profile_allUser = async (req, res) => {
         { $project: {user_id:0, user_data:0 } }
     ])
 
-    res.json({
+    res.status(200).json({
         success :"all users",
         data : data
 
     })
+
+  } catch(err){
+    res.send(err)
+  }
 
     // Profile.find({}, function (err, Product) {
     //     if (err) {
